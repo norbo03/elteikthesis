@@ -14,18 +14,14 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            elteikthesis_hu.tex
             elteikthesis_en.tex
-            elteikthesis_minted.tex
           latexmk_shell_escape: true
       - if: ${{ matrix.engine == 'lualatex' }}
         name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            elteikthesis_hu.tex
             elteikthesis_en.tex
-            elteikthesis_minted.tex
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
       - name: Upload the compiled pdf
@@ -33,7 +29,5 @@ jobs:
         with:
           name: thesis-${{ matrix.engine }}
           path: |
-            elteikthesis_hu.pdf
             elteikthesis_en.pdf
-            elteikthesis_minted.pdf
           if-no-files-found: error
